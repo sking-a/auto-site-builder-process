@@ -1,0 +1,441 @@
+{
+  "siteName": "足球直播",
+  "siteUrl": "https://zuqiuzhibo.ppzhibo.com",
+  "defaultLocale": "en",
+  "alternateLocales": ["zh"],
+  "primaryComplianceNote": "This site is an official-channel guide. It does not host, scrape, embed, or promote unauthorized streams.",
+  "keywords": [
+    "football live stream today",
+    "soccer live stream today official channels",
+    "watch football online legally",
+    "live soccer on TV today",
+    "Premier League live stream guide",
+    "Champions League live stream guide",
+    "World Cup 2026 live stream guide",
+    "how to watch football live on mobile",
+    "best apps to watch soccer live",
+    "football TV schedule today",
+    "soccer streaming services by country",
+    "watch live football without cable",
+    "official soccer broadcast channels",
+    "free legal soccer live streams",
+    "football live stream in HD official",
+    "今日足球直播赛程",
+    "足球直播在线观看官方渠道",
+    "英超直播官方观看指南",
+    "欧冠直播官方观看指南",
+    "世界杯直播2026观看指南",
+    "手机怎么看足球直播",
+    "足球直播平台哪个好",
+    "足球比赛直播时间表",
+    "高清足球直播合法平台",
+    "中英足球直播指南",
+    "足球直播无插件官方渠道",
+    "今日英超直播时间",
+    "欧冠今晚哪里看直播",
+    "世界杯直播平台地区指南",
+    "足球直播赛程频道表"
+  ],
+  "providers": [
+    {
+      "name": "Official league broadcasters",
+      "region": "Global",
+      "description": "League and competition websites publish licensed broadcasters by market before each season or tournament.",
+      "url": "https://www.fifa.com/"
+    },
+    {
+      "name": "Cable and streaming TV guides",
+      "region": "United States and selected markets",
+      "description": "TV guide pages help fans confirm kickoff times, channel names, and available streaming packages.",
+      "url": "https://www.directv.com/sports/soccer/"
+    },
+    {
+      "name": "Sports media schedule guides",
+      "region": "Global",
+      "description": "Editorial schedule hubs summarize fixtures and viewing information while linking readers to authorized options.",
+      "url": "https://www.goal.com/en-us/sports-events/soccer"
+    }
+  ],
+  "matchGuides": [
+    {
+      "competition": "Premier League",
+      "match": "Weekend league fixtures",
+      "time": "Check local listing",
+      "channel": "Official regional broadcaster",
+      "path": "/leagues/premier-league-live-stream/"
+    },
+    {
+      "competition": "UEFA Champions League",
+      "match": "Matchday fixtures",
+      "time": "Check local listing",
+      "channel": "Official UEFA rights holder",
+      "path": "/leagues/champions-league-live-stream/"
+    },
+    {
+      "competition": "FIFA World Cup 2026",
+      "match": "Tournament coverage",
+      "time": "Published before kickoff",
+      "channel": "Official national broadcaster",
+      "path": "/leagues/world-cup-2026-live-stream/"
+    }
+  ],
+  "pages": [
+    {
+      "path": "/today-football-live-stream/",
+      "locale": "en",
+      "keyword": "football live stream today",
+      "title": "Football Live Stream Today: Schedule and Official Channels",
+      "description": "Check today's football live schedule, official soccer broadcast channels, and legal ways to watch matches on mobile, TV, or desktop.",
+      "h1": "Football Live Stream Today",
+      "summary": "Use this page as a clean starting point for match timing, official broadcaster checks, and device-ready viewing steps.",
+      "sections": [
+        {
+          "heading": "Start with the official match listing",
+          "body": "Kickoff times and broadcast rights change by country. The safest workflow is to confirm the competition, check your local rights holder, then open the official app or TV provider before the match begins."
+        },
+        {
+          "heading": "How to compare viewing options",
+          "body": "Look for legal access, HD availability, language commentary, mobile support, replay windows, and whether the match is included in your existing subscription."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Can I watch football live for free legally?",
+          "answer": "Some broadcasters stream selected matches free in specific regions. Availability depends on local rights and the competition."
+        },
+        {
+          "question": "Why does a football stream differ by country?",
+          "answer": "Broadcast rights are licensed by market, so the official channel for one country may not apply in another."
+        }
+      ],
+      "howTo": {
+        "name": "How to find a legal football live stream today",
+        "steps": [
+          "Confirm the match, competition, and kickoff time.",
+          "Check the competition website or trusted TV schedule for your country.",
+          "Open the official broadcaster app or website and sign in if required.",
+          "Test playback before kickoff on your preferred device."
+        ]
+      }
+    },
+    {
+      "path": "/football-live-stream-guide/",
+      "locale": "en",
+      "keyword": "watch football online legally",
+      "title": "Football Live Stream Guide: Today’s Matches and Official Channels",
+      "description": "A bilingual football live stream guide for official channels, TV schedules, legal streaming services, mobile viewing, and match-day checks.",
+      "h1": "Football Live Stream Guide",
+      "summary": "A practical guide for fans who want clear, legal routes to watch football across leagues, devices, and regions.",
+      "sections": [
+        {
+          "heading": "What this guide covers",
+          "body": "We organize official viewing information by match intent: today's schedule, league guides, device setup, and country-by-country provider checks."
+        },
+        {
+          "heading": "What this guide does not do",
+          "body": "足球直播 does not host or embed match video. We point readers toward authorized channels and help them avoid unreliable or unsafe sources."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Does this site host live football video?",
+          "answer": "No. It is an information guide for official channels, schedules, and legal viewing options."
+        },
+        {
+          "question": "What is the fastest way to find a match?",
+          "answer": "Start with the today schedule, then choose the league guide or device guide that matches your need."
+        }
+      ]
+    },
+    {
+      "path": "/zh/zuqiu-zhibo/",
+      "locale": "zh",
+      "keyword": "足球直播在线观看官方渠道",
+      "title": "足球直播官方观看指南：今日赛程、频道与平台",
+      "description": "足球直播提供中英双语的今日赛程、官方频道、合法平台、手机观看、赛事专题和安全看球步骤，帮助全球球迷快速确认授权入口。",
+      "h1": "足球直播官方观看指南",
+      "summary": "这里整理今日足球赛程、官方观看渠道、常见设备教程和赛事专题，帮助你用更安全、更稳定的方式看球。",
+      "sections": [
+        {
+          "heading": "先确认赛事和地区",
+          "body": "同一场比赛在不同国家和地区的版权方不同。建议先确认赛事名称、开球时间和所在地区，再查看官方转播平台。"
+        },
+        {
+          "heading": "优先选择授权平台",
+          "body": "授权平台通常提供更稳定的画质、解说语言、回放和客服支持，也能减少恶意广告、跳转和账号安全风险。"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "足球直播可以直接在线看吗？",
+          "answer": "本站不提供未授权视频源，只整理官方频道、合法平台和观看步骤。"
+        },
+        {
+          "question": "手机怎么看足球直播？",
+          "answer": "先确认赛事版权方，再安装对应官方 App 或打开授权平台网页，登录后提前测试播放。"
+        }
+      ],
+      "howTo": {
+        "name": "如何找到官方足球直播",
+        "steps": [
+          "确认比赛名称、赛事和开球时间。",
+          "查看赛事官网或可信赛程页公布的转播方。",
+          "打开所在地区的官方平台或电视服务。",
+          "在开赛前完成登录和播放测试。"
+        ]
+      }
+    },
+    {
+      "path": "/leagues/premier-league-live-stream/",
+      "locale": "en",
+      "keyword": "Premier League live stream guide",
+      "title": "Premier League Live Stream Guide for Official Viewing",
+      "description": "Find legal Premier League live stream options, match-day schedule checks, regional broadcaster tips, and mobile viewing steps.",
+      "h1": "Premier League Live Stream Guide",
+      "summary": "A league-specific guide for checking official Premier League viewing options in your market.",
+      "sections": [
+        {
+          "heading": "Check regional rights first",
+          "body": "Premier League rights are sold by market. Always verify the authorized broadcaster for your country before searching for a match stream."
+        },
+        {
+          "heading": "Prepare for match day",
+          "body": "Confirm kickoff time, choose your legal provider, test HD playback, and keep a backup official device ready if you travel."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Are all Premier League matches on one service?",
+          "answer": "Not always. Some countries split matches between TV channels and streaming services."
+        },
+        {
+          "question": "Can I watch Premier League on mobile?",
+          "answer": "Yes, when your official broadcaster includes mobile app or web access."
+        }
+      ]
+    },
+    {
+      "path": "/leagues/champions-league-live-stream/",
+      "locale": "en",
+      "keyword": "Champions League live stream guide",
+      "title": "Champions League Live Stream Guide and Official Channels",
+      "description": "Plan how to watch UEFA Champions League live through official regional channels, match schedules, and device-ready streaming apps.",
+      "h1": "Champions League Live Stream Guide",
+      "summary": "A practical route to Champions League matchdays without unsafe or unauthorized stream hunting.",
+      "sections": [
+        {
+          "heading": "Follow UEFA and local listings",
+          "body": "Champions League broadcasters vary by market and season. Start with official UEFA information, then confirm the local rights holder."
+        },
+        {
+          "heading": "Account for late kickoffs",
+          "body": "European evening matches may fall at unusual local times. Save the fixture in your calendar and test playback before the teams walk out."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Where can I watch Champions League legally?",
+          "answer": "Use the official rights holder in your region, usually listed by UEFA, TV providers, or major sports schedule guides."
+        },
+        {
+          "question": "Does this guide list unofficial links?",
+          "answer": "No. It focuses on official channels and safe viewing workflows."
+        }
+      ]
+    },
+    {
+      "path": "/leagues/world-cup-2026-live-stream/",
+      "locale": "en",
+      "keyword": "World Cup 2026 live stream guide",
+      "title": "World Cup 2026 Live Stream Guide by Region",
+      "description": "Prepare for World Cup 2026 live streaming with official broadcaster checks, regional viewing tips, mobile setup, and schedule planning.",
+      "h1": "World Cup 2026 Live Stream Guide",
+      "summary": "A forward-looking guide for official World Cup 2026 viewing across regions and devices.",
+      "sections": [
+        {
+          "heading": "Broadcaster details can change",
+          "body": "Tournament rights, package details, and app availability may update before kickoff. Treat early guides as planning aids and verify near match day."
+        },
+        {
+          "heading": "Build a region checklist",
+          "body": "Record your country, official broadcaster, subscription need, app support, language options, and replay availability before the tournament starts."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Is World Cup 2026 streaming available everywhere?",
+          "answer": "Coverage will be broad, but each country has its own official broadcaster and access rules."
+        },
+        {
+          "question": "When should I verify the final channel?",
+          "answer": "Check again close to the match because schedules and platform details can change."
+        }
+      ]
+    },
+    {
+      "path": "/devices/watch-football-live-on-mobile/",
+      "locale": "en",
+      "keyword": "how to watch football live on mobile",
+      "title": "How to Watch Football Live on Mobile Legally",
+      "description": "Set up legal football live streams on iPhone or Android with official apps, account checks, data tips, casting options, and match-day testing.",
+      "h1": "How to Watch Football Live on Mobile",
+      "summary": "A mobile-first checklist for stable match viewing through authorized apps and browser players.",
+      "sections": [
+        {
+          "heading": "Install the official app",
+          "body": "Use the broadcaster or TV provider app listed for your region. Avoid copycat apps and pages that ask for unusual permissions."
+        },
+        {
+          "heading": "Protect quality and battery",
+          "body": "Use Wi-Fi for HD, keep your device charged, disable battery savers that interrupt playback, and test casting before kickoff."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Do mobile streams use a lot of data?",
+          "answer": "Yes. HD football can consume significant data, so Wi-Fi is usually best for full matches."
+        },
+        {
+          "question": "Can I cast a mobile football stream to TV?",
+          "answer": "Many official apps support casting, but rights restrictions can vary by provider."
+        }
+      ],
+      "howTo": {
+        "name": "How to prepare your phone for live football",
+        "steps": [
+          "Install the official broadcaster app.",
+          "Sign in and confirm your subscription or free access.",
+          "Test video playback and audio language.",
+          "Connect to Wi-Fi or prepare enough mobile data before kickoff."
+        ]
+      }
+    },
+    {
+      "path": "/devices/watch-football-on-smart-tv/",
+      "locale": "en",
+      "keyword": "watch football on smart TV",
+      "title": "Watch Football on Smart TV Through Official Apps",
+      "description": "Learn how to watch football on a smart TV with official apps, casting, HDMI, TV provider login, and simple match-day troubleshooting.",
+      "h1": "Watch Football on Smart TV",
+      "summary": "A living-room guide for fans who prefer official big-screen viewing.",
+      "sections": [
+        {
+          "heading": "Choose the cleanest route",
+          "body": "Install the official app on your TV when available. If not, use casting or HDMI from a logged-in mobile or desktop device."
+        },
+        {
+          "heading": "Fix common playback issues",
+          "body": "Update the app, restart the TV, check your account region, and verify that your provider allows big-screen playback."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Why does a stream work on phone but not TV?",
+          "answer": "Some providers restrict casting or smart TV playback depending on rights and account type."
+        },
+        {
+          "question": "Is HDMI a legal workaround?",
+          "answer": "HDMI from your own authorized account is usually a device choice, but provider terms still apply."
+        }
+      ]
+    }
+  ],
+  "blogPosts": [
+    {
+      "slug": "soccer-live-stream-today-official-channels",
+      "locale": "en",
+      "title": "Soccer Live Stream Today: How to Find Official Channels",
+      "description": "A match-day workflow for finding official soccer live streams without unsafe links or unreliable popups.",
+      "keyword": "soccer live stream today official channels",
+      "body": "Start with the competition, confirm your region, then use a trusted schedule page or broadcaster list. If a result promises every match free in HD without rights information, treat it as a risk signal."
+    },
+    {
+      "slug": "live-soccer-on-tv-today",
+      "locale": "en",
+      "title": "Live Soccer on TV Today: What to Check Before Kickoff",
+      "description": "Use this quick checklist to compare live soccer TV listings, streaming apps, language options, and replay availability.",
+      "keyword": "live soccer on TV today",
+      "body": "TV schedules are useful because they connect the fixture to a named channel or app. Check time zone, subscription status, app support, and whether your provider offers a replay if you miss kickoff."
+    },
+    {
+      "slug": "watch-live-football-without-cable",
+      "locale": "en",
+      "title": "Watch Live Football Without Cable Using Legal Services",
+      "description": "Compare legal streaming bundles and official broadcaster apps for fans who no longer use cable TV.",
+      "keyword": "watch live football without cable",
+      "body": "Cord-cutters should compare rights coverage, total monthly cost, device support, DVR or replay, and cancellation terms before choosing a service."
+    },
+    {
+      "slug": "best-apps-to-watch-soccer-live",
+      "locale": "en",
+      "title": "Best Apps to Watch Soccer Live: What Makes One Legit",
+      "description": "Learn how to judge soccer streaming apps by official rights, device support, HD quality, security, and account reliability.",
+      "keyword": "best apps to watch soccer live",
+      "body": "The best app is not always the cheapest. Prioritize the app that legally carries your league in your country and works on the devices you actually use."
+    },
+    {
+      "slug": "official-soccer-broadcast-channels",
+      "locale": "en",
+      "title": "Official Soccer Broadcast Channels: A Global Fan Checklist",
+      "description": "A simple checklist for identifying official soccer broadcast channels by country, league, and match timing.",
+      "keyword": "official soccer broadcast channels",
+      "body": "Official channels typically appear on league, federation, or TV provider pages. Save your local source before the season starts so match day is less chaotic."
+    },
+    {
+      "slug": "free-legal-soccer-live-streams",
+      "locale": "en",
+      "title": "Free Legal Soccer Live Streams: Where They Sometimes Exist",
+      "description": "Understand when free legal soccer streams are available and why access depends on region and broadcast rights.",
+      "keyword": "free legal soccer live streams",
+      "body": "Some national broadcasters, cup competitions, or promotional windows offer free legal access. Always confirm the source and avoid pages that hide ownership or rights details."
+    },
+    {
+      "slug": "jinri-zuqiu-zhibo-saicheng",
+      "locale": "zh",
+      "title": "今日足球直播赛程：先看时间，再找官方频道",
+      "description": "整理今日足球直播赛程的查找方法，帮助你按赛事、地区、平台和设备确认官方观看渠道。",
+      "keyword": "今日足球直播赛程",
+      "body": "看球前先确认比赛时间、赛事名称和所在地区，再去赛事官网、电视服务或授权平台核对频道。这样比临时搜索随机链接更稳定。"
+    },
+    {
+      "slug": "yingchao-zhibo-guanfang-zhinan",
+      "locale": "zh",
+      "title": "英超直播官方观看指南：地区、平台与设备",
+      "description": "英超直播在不同地区由不同版权方提供，本指南说明如何查找官方平台和准备比赛日观看。",
+      "keyword": "英超直播官方观看指南",
+      "body": "英超版权通常按国家和地区分配。确认本地版权方后，再选择电视、网页或官方 App 观看，并提前测试账号和网络。"
+    },
+    {
+      "slug": "ouguan-jinwan-nali-kan-zhibo",
+      "locale": "zh",
+      "title": "欧冠今晚哪里看直播：官方渠道查询流程",
+      "description": "欧冠直播频道会随地区变化，本文提供赛前查询、平台确认和手机观看的实用流程。",
+      "keyword": "欧冠今晚哪里看直播",
+      "body": "欧冠比赛常在当地深夜或凌晨开球。建议提前确认官方频道、订阅状态和设备播放能力，避免开赛后再找入口。"
+    },
+    {
+      "slug": "shouji-zenme-kan-zuqiu-zhibo",
+      "locale": "zh",
+      "title": "手机怎么看足球直播：官方 App 与网页观看步骤",
+      "description": "用手机看足球直播时，优先选择授权 App 或平台网页，并提前检查网络、登录和清晰度设置。",
+      "keyword": "手机怎么看足球直播",
+      "body": "手机看球最重要的是来源、网络和电量。使用官方 App，连接稳定网络，并在开赛前测试画面和声音。"
+    },
+    {
+      "slug": "zhongying-zuqiu-zhibo-zhinan",
+      "locale": "zh",
+      "title": "中英足球直播指南：全球球迷如何查官方渠道",
+      "description": "面向中英双语球迷的足球直播指南，覆盖今日赛程、官方频道、赛事专题和设备教程。",
+      "keyword": "中英足球直播指南",
+      "body": "跨地区看球时，语言和版权都会影响选择。中英双语信息能帮助你更快理解赛程、频道和平台规则。"
+    },
+    {
+      "slug": "world-cup-2026-region-guide",
+      "locale": "en",
+      "title": "World Cup 2026 Streaming by Region: What to Prepare",
+      "description": "Plan World Cup 2026 viewing by confirming official broadcasters, device support, and regional access before the tournament.",
+      "keyword": "World Cup 2026 live stream guide",
+      "body": "World Cup demand spikes quickly. Build your region checklist early, then verify official broadcaster details again near the tournament."
+    }
+  ]
+}
