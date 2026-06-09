@@ -15,8 +15,8 @@ export function SiteFooter() {
           <Link href="/football-live-stream-guide/" className="hover:text-white">
             Football guide
           </Link>
-          <Link href="/zh/zuqiu-zhibo/" className="hover:text-white">
-            中文指南
+          <Link href="/global-football-live-stream/" className="hover:text-white">
+            Global guide
           </Link>
           <Link href="/today-football-live-stream/" className="hover:text-white">
             Today schedule

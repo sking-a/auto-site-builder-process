@@ -7,34 +7,59 @@ const root = process.cwd();
 const contentPath = join(root, "src", "content", "site.json");
 const seoPath = join(root, "src", "lib", "seo.ts");
 
-test("site content covers the planned bilingual football live keywords", () => {
+test("site content covers the planned English football live keywords", () => {
   assert.equal(existsSync(contentPath), true);
   const site = JSON.parse(readFileSync(contentPath, "utf8"));
 
   assert.equal(site.siteUrl, "https://zuqiuzhibo.ppzhibo.com");
-  assert.equal(site.siteName, "足球直播");
+  assert.equal(site.siteName, "Football Live Guide");
   assert.equal(site.primaryComplianceNote.includes("official"), true);
   assert.equal(site.keywords.length, 30);
-  assert.equal(site.pages.some((page) => page.path === "/zh/zuqiu-zhibo/"), true);
+  assert.equal(site.pages.some((page) => page.path === "/global-football-live-stream/"), true);
   assert.equal(site.pages.some((page) => page.path === "/football-live-stream-guide/"), true);
   assert.equal(site.blogPosts.length >= 10, true);
 });
 
-test("all public pages have SEO essentials and no unauthorized stream promise", () => {
+test("all content is English only and has no unauthorized stream promise", () => {
   const site = JSON.parse(readFileSync(contentPath, "utf8"));
   const forbidden = /盗链|破解|付费墙|pirated|illegal stream|bypass paywall/i;
+  const chineseCharacters = /[\u3400-\u9fff]/;
 
   for (const page of site.pages) {
     assert.match(page.title, /\S/);
-    const minDescriptionLength = page.locale === "zh" ? 45 : 80;
-    const maxDescriptionLength = page.locale === "zh" ? 90 : 170;
     assert.ok(
-      page.description.length >= minDescriptionLength && page.description.length <= maxDescriptionLength,
+      page.description.length >= 80 && page.description.length <= 170,
       `${page.path} description length is ${page.description.length}`
     );
     assert.match(page.h1, /\S/);
     assert.equal(page.faqs.length >= 2, true);
     assert.equal(forbidden.test(JSON.stringify(page)), false);
+    assert.equal(chineseCharacters.test(JSON.stringify(page)), false, `${page.path} contains Chinese text`);
+    assert.equal(page.locale, "en");
+  }
+
+  for (const post of site.blogPosts) {
+    assert.equal(post.locale, "en");
+    assert.equal(chineseCharacters.test(JSON.stringify(post)), false, `${post.slug} contains Chinese text`);
+  }
+});
+
+test("source files that render public pages do not contain Chinese characters", () => {
+  const files = [
+    "README.md",
+    "src/content/site.json",
+    "src/components/SiteHeader.tsx",
+    "src/components/SiteFooter.tsx",
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/lib/site.ts",
+    "src/lib/seo.ts"
+  ];
+  const chineseCharacters = /[\u3400-\u9fff]/;
+
+  for (const file of files) {
+    const source = readFileSync(join(root, file), "utf8");
+    assert.equal(chineseCharacters.test(source), false, `${file} contains Chinese text`);
   }
 });
 

@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: absoluteUrl(page.path),
     lastModified: now,
     changeFrequency: "weekly" as const,
-    priority: page.path === "/football-live-stream-guide/" || page.path === "/zh/zuqiu-zhibo/" ? 0.9 : 0.75
+    priority: page.path === "/football-live-stream-guide/" || page.path === "/global-football-live-stream/" ? 0.9 : 0.75
   }));
   const blogUrls = getBlogPosts().map((post) => ({
     url: absoluteUrl(`/blog/${post.slug}/`),

@@ -9,7 +9,7 @@ export function websiteSchema() {
     "@type": "WebSite",
     name: site.siteName,
     url: site.siteUrl,
-    inLanguage: ["en", "zh"],
+    inLanguage: ["en"],
     potentialAction: {
       "@type": "SearchAction",
       target: `${site.siteUrl}/?q={search_term_string}`,
@@ -83,20 +83,6 @@ export function breadcrumbSchema(items: Array<{ name: string; path: string }>) {
 
 export function alternateLanguages(path: string) {
   const site = getSite();
-
-  if (path === "/football-live-stream-guide/") {
-    return {
-      en: absoluteUrl(path),
-      zh: absoluteUrl("/zh/zuqiu-zhibo/")
-    };
-  }
-
-  if (path === "/zh/zuqiu-zhibo/") {
-    return {
-      en: absoluteUrl("/football-live-stream-guide/"),
-      zh: absoluteUrl(path)
-    };
-  }
 
   return {
     [site.defaultLocale]: absoluteUrl(path)

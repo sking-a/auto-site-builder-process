@@ -17,11 +17,11 @@ export default function HomePage() {
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.24em] text-lime">Official channels only</p>
             <h1 className="mt-5 max-w-4xl text-5xl font-black leading-tight text-white md:text-7xl">
-              足球直播 / Football Live Stream Guide
+              Football Live Stream Guide
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-mist">
-              Bilingual match-day guidance for today&apos;s football schedule, official channels, league viewing
-              routes, and mobile-friendly setup. No unauthorized streams, no unsafe popups.
+              Match-day guidance for today&apos;s football schedule, official channels, league viewing routes,
+              and mobile-friendly setup. No unauthorized streams, no unsafe popups.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/today-football-live-stream/" className="rounded-full bg-lime px-6 py-3 text-center font-black text-pitch hover:bg-white">
@@ -35,7 +35,7 @@ export default function HomePage() {
           <div className="rounded-[2rem] border border-lime/20 bg-white/[0.05] p-4 shadow-glow">
             <Image
               src="/stadium-guide.webp"
-              alt="Abstract night football stadium with pitch lines for the 足球直播 official guide"
+              alt="Abstract night football stadium with pitch lines for the Football Live Guide official channel site"
               width="900"
               height="620"
               className="aspect-[1.45] w-full rounded-[1.5rem] object-cover"

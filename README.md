@@ -1,4 +1,4 @@
-# 足球直播 Official Guide
+# Football Live Guide
 
 Mobile-first Next.js 14 static SEO site for `zuqiuzhibo.ppzhibo.com`.
 

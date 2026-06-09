@@ -38,5 +38,5 @@ export function pathToSegments(path: string): string[] {
 }
 
 export function localeName(locale: string): string {
-  return locale === "zh" ? "中文" : "English";
+  return locale === "en" ? "English" : locale;
 }

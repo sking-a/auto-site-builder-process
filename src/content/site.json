@@ -1,8 +1,8 @@
 {
-  "siteName": "足球直播",
+  "siteName": "Football Live Guide",
   "siteUrl": "https://zuqiuzhibo.ppzhibo.com",
   "defaultLocale": "en",
-  "alternateLocales": ["zh"],
+  "alternateLocales": [],
   "primaryComplianceNote": "This site is an official-channel guide. It does not host, scrape, embed, or promote unauthorized streams.",
   "keywords": [
     "football live stream today",
@@ -20,21 +20,21 @@
     "official soccer broadcast channels",
     "free legal soccer live streams",
     "football live stream in HD official",
-    "今日足球直播赛程",
-    "足球直播在线观看官方渠道",
-    "英超直播官方观看指南",
-    "欧冠直播官方观看指南",
-    "世界杯直播2026观看指南",
-    "手机怎么看足球直播",
-    "足球直播平台哪个好",
-    "足球比赛直播时间表",
-    "高清足球直播合法平台",
-    "中英足球直播指南",
-    "足球直播无插件官方渠道",
-    "今日英超直播时间",
-    "欧冠今晚哪里看直播",
-    "世界杯直播平台地区指南",
-    "足球直播赛程频道表"
+    "global football live stream guide",
+    "legal football streaming platforms",
+    "Premier League official channels",
+    "Champions League official channels",
+    "World Cup 2026 official broadcasters",
+    "watch soccer on iPhone legally",
+    "watch soccer on Android legally",
+    "football match schedule channel guide",
+    "HD football live stream official",
+    "English football live stream guide",
+    "football live stream no unsafe popups",
+    "Premier League kickoff time today",
+    "where to watch Champions League tonight",
+    "World Cup streaming region guide",
+    "football live schedule channel list"
   ],
   "providers": [
     {
@@ -122,8 +122,8 @@
       "path": "/football-live-stream-guide/",
       "locale": "en",
       "keyword": "watch football online legally",
-      "title": "Football Live Stream Guide: Today’s Matches and Official Channels",
-      "description": "A bilingual football live stream guide for official channels, TV schedules, legal streaming services, mobile viewing, and match-day checks.",
+      "title": "Football Live Stream Guide: Today's Matches and Official Channels",
+      "description": "A football live stream guide for official channels, TV schedules, legal streaming services, mobile viewing, and match-day checks.",
       "h1": "Football Live Stream Guide",
       "summary": "A practical guide for fans who want clear, legal routes to watch football across leagues, devices, and regions.",
       "sections": [
@@ -133,7 +133,7 @@
         },
         {
           "heading": "What this guide does not do",
-          "body": "足球直播 does not host or embed match video. We point readers toward authorized channels and help them avoid unreliable or unsafe sources."
+          "body": "Football Live Guide does not host or embed match video. We point readers toward authorized channels and help them avoid unreliable or unsafe sources."
         }
       ],
       "faqs": [
@@ -148,40 +148,40 @@
       ]
     },
     {
-      "path": "/zh/zuqiu-zhibo/",
-      "locale": "zh",
-      "keyword": "足球直播在线观看官方渠道",
-      "title": "足球直播官方观看指南：今日赛程、频道与平台",
-      "description": "足球直播提供中英双语的今日赛程、官方频道、合法平台、手机观看、赛事专题和安全看球步骤，帮助全球球迷快速确认授权入口。",
-      "h1": "足球直播官方观看指南",
-      "summary": "这里整理今日足球赛程、官方观看渠道、常见设备教程和赛事专题，帮助你用更安全、更稳定的方式看球。",
+      "path": "/global-football-live-stream/",
+      "locale": "en",
+      "keyword": "global football live stream guide",
+      "title": "Global Football Live Stream Guide for Official Channels",
+      "description": "Find global football live stream guidance for official channels, regional broadcasters, legal platforms, mobile setup, and match-day planning.",
+      "h1": "Global Football Live Stream Guide",
+      "summary": "A global English-language hub for checking regional rights, official platforms, and safe match-day viewing steps.",
       "sections": [
         {
-          "heading": "先确认赛事和地区",
-          "body": "同一场比赛在不同国家和地区的版权方不同。建议先确认赛事名称、开球时间和所在地区，再查看官方转播平台。"
+          "heading": "Confirm your region before choosing a platform",
+          "body": "The same match can have different official broadcasters in different countries. Confirm the competition, kickoff time, and local market before choosing a TV service or streaming app."
         },
         {
-          "heading": "优先选择授权平台",
-          "body": "授权平台通常提供更稳定的画质、解说语言、回放和客服支持，也能减少恶意广告、跳转和账号安全风险。"
+          "heading": "Choose authorized viewing routes",
+          "body": "Authorized platforms usually provide better quality, account security, language options, support, and replay features while reducing exposure to unsafe redirects or misleading pages."
         }
       ],
       "faqs": [
         {
-          "question": "足球直播可以直接在线看吗？",
-          "answer": "本站不提供未授权视频源，只整理官方频道、合法平台和观看步骤。"
+          "question": "Can this guide tell me where to watch in every country?",
+          "answer": "It gives a safe workflow and trusted source types, but you should always verify the final broadcaster for your own region."
         },
         {
-          "question": "手机怎么看足球直播？",
-          "answer": "先确认赛事版权方，再安装对应官方 App 或打开授权平台网页，登录后提前测试播放。"
+          "question": "Does this page include unofficial stream links?",
+          "answer": "No. It only explains official-channel checks and legal viewing options."
         }
       ],
       "howTo": {
-        "name": "如何找到官方足球直播",
+        "name": "How to check official football streaming by region",
         "steps": [
-          "确认比赛名称、赛事和开球时间。",
-          "查看赛事官网或可信赛程页公布的转播方。",
-          "打开所在地区的官方平台或电视服务。",
-          "在开赛前完成登录和播放测试。"
+          "Identify the match, competition, and kickoff time.",
+          "Check the competition website or a trusted TV schedule source.",
+          "Select the official broadcaster or streaming service for your country.",
+          "Sign in and test playback before kickoff."
         ]
       }
     },
@@ -390,44 +390,44 @@
       "body": "Some national broadcasters, cup competitions, or promotional windows offer free legal access. Always confirm the source and avoid pages that hide ownership or rights details."
     },
     {
-      "slug": "jinri-zuqiu-zhibo-saicheng",
-      "locale": "zh",
-      "title": "今日足球直播赛程：先看时间，再找官方频道",
-      "description": "整理今日足球直播赛程的查找方法，帮助你按赛事、地区、平台和设备确认官方观看渠道。",
-      "keyword": "今日足球直播赛程",
-      "body": "看球前先确认比赛时间、赛事名称和所在地区，再去赛事官网、电视服务或授权平台核对频道。这样比临时搜索随机链接更稳定。"
+      "slug": "premier-league-kickoff-time-today",
+      "locale": "en",
+      "title": "Premier League Kickoff Time Today: How to Check It",
+      "description": "Learn how to confirm Premier League kickoff times, official broadcasters, time zones, and device access before match day.",
+      "keyword": "Premier League kickoff time today",
+      "body": "Kickoff times can shift for TV windows, cup commitments, or local scheduling. Check the league schedule, then confirm the official broadcaster in your region."
     },
     {
-      "slug": "yingchao-zhibo-guanfang-zhinan",
-      "locale": "zh",
-      "title": "英超直播官方观看指南：地区、平台与设备",
-      "description": "英超直播在不同地区由不同版权方提供，本指南说明如何查找官方平台和准备比赛日观看。",
-      "keyword": "英超直播官方观看指南",
-      "body": "英超版权通常按国家和地区分配。确认本地版权方后，再选择电视、网页或官方 App 观看，并提前测试账号和网络。"
+      "slug": "premier-league-official-channels",
+      "locale": "en",
+      "title": "Premier League Official Channels: How Rights Work",
+      "description": "Premier League official channels vary by region, so this guide explains how to check local broadcasters and streaming apps safely.",
+      "keyword": "Premier League official channels",
+      "body": "Premier League rights are territorial. A provider that works in one country may not carry the same match in another, so regional confirmation matters."
     },
     {
-      "slug": "ouguan-jinwan-nali-kan-zhibo",
-      "locale": "zh",
-      "title": "欧冠今晚哪里看直播：官方渠道查询流程",
-      "description": "欧冠直播频道会随地区变化，本文提供赛前查询、平台确认和手机观看的实用流程。",
-      "keyword": "欧冠今晚哪里看直播",
-      "body": "欧冠比赛常在当地深夜或凌晨开球。建议提前确认官方频道、订阅状态和设备播放能力，避免开赛后再找入口。"
+      "slug": "where-to-watch-champions-league-tonight",
+      "locale": "en",
+      "title": "Where to Watch Champions League Tonight",
+      "description": "A safe workflow for checking Champions League official channels, match timing, streaming apps, and mobile playback before kickoff.",
+      "keyword": "where to watch Champions League tonight",
+      "body": "Champions League match nights move quickly. Confirm the fixture, local rights holder, subscription status, and playback device before the lineups arrive."
     },
     {
-      "slug": "shouji-zenme-kan-zuqiu-zhibo",
-      "locale": "zh",
-      "title": "手机怎么看足球直播：官方 App 与网页观看步骤",
-      "description": "用手机看足球直播时，优先选择授权 App 或平台网页，并提前检查网络、登录和清晰度设置。",
-      "keyword": "手机怎么看足球直播",
-      "body": "手机看球最重要的是来源、网络和电量。使用官方 App，连接稳定网络，并在开赛前测试画面和声音。"
+      "slug": "watch-soccer-on-iphone-legally",
+      "locale": "en",
+      "title": "Watch Soccer on iPhone Legally: Setup Checklist",
+      "description": "Use this iPhone soccer streaming checklist to prepare official apps, account login, Wi-Fi, battery, captions, and casting.",
+      "keyword": "watch soccer on iPhone legally",
+      "body": "Install the official app, sign in early, test video and audio, and keep your phone charged. Avoid unknown apps that imitate broadcaster branding."
     },
     {
-      "slug": "zhongying-zuqiu-zhibo-zhinan",
-      "locale": "zh",
-      "title": "中英足球直播指南：全球球迷如何查官方渠道",
-      "description": "面向中英双语球迷的足球直播指南，覆盖今日赛程、官方频道、赛事专题和设备教程。",
-      "keyword": "中英足球直播指南",
-      "body": "跨地区看球时，语言和版权都会影响选择。中英双语信息能帮助你更快理解赛程、频道和平台规则。"
+      "slug": "english-football-live-stream-guide",
+      "locale": "en",
+      "title": "English Football Live Stream Guide for Global Fans",
+      "description": "A pure English guide to official football live stream sources, league pages, mobile setup, and global broadcaster checks.",
+      "keyword": "English football live stream guide",
+      "body": "Global fans need clear English guidance when rights and platform names differ by market. Start with the competition, confirm the region, then choose the official route."
     },
     {
       "slug": "world-cup-2026-region-guide",
