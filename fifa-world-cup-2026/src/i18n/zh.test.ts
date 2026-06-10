@@ -9,5 +9,8 @@ describe("Chinese team-name localization", () => {
     expect(localizeTeamName("Jordan")).toBe("约旦");
     expect(localizeTeamName("Algeria")).toBe("阿尔及利亚");
     expect(localizeTeamName("Uzbekistan")).toBe("乌兹别克斯坦");
+    expect(localizeTeamName("Bosnia-Herzegovina")).toBe("波黑");
+    expect(localizeTeamName("Cape Verde Islands")).toBe("佛得角");
+    expect(localizeTeamName("Congo DR")).toBe("刚果（金）");
   });
 });
