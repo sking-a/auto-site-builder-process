@@ -33,17 +33,17 @@ describe("football-data.org mapping", () => {
 
     expect(mapped[0]).toMatchObject({
       id: "api-101",
-      stage: "Group Stage",
-      round: "Group A · Matchday 1",
-      date: "2026-06-11",
-      time: "20:00",
+      stage: "小组赛",
+      round: "A组 · 第1轮",
+      date: "2026-06-12",
+      time: "04:00",
       score: "2-1",
-      home: { name: "Mexico", flagCode: "MX" },
-      away: { name: "Canada", flagCode: "CA" },
+      home: { name: "墨西哥", flagCode: "MX" },
+      away: { name: "加拿大", flagCode: "CA" },
     });
     expect(mapped[1]).toMatchObject({
-      stage: "Knockout Stage",
-      round: "Final",
+      stage: "淘汰赛",
+      round: "决赛",
       score: "TBD",
     });
   });
@@ -68,10 +68,10 @@ describe("football-data.org mapping", () => {
 
     expect(mapped).toEqual([
       {
-        name: "Group A",
+        name: "A组",
         table: [
           {
-            team: expect.objectContaining({ name: "Canada", flagCode: "CA" }),
+            team: expect.objectContaining({ name: "加拿大", flagCode: "CA" }),
             wins: 2,
             draws: 1,
             losses: 0,
@@ -85,9 +85,9 @@ describe("football-data.org mapping", () => {
   });
 
   it("normalizes football-data stage and group labels", () => {
-    expect(normalizeFootballDataStage("GROUP_STAGE")).toBe("Group Stage");
-    expect(normalizeFootballDataStage("SEMI_FINALS")).toBe("Knockout Stage");
-    expect(normalizeFootballDataGroup("GROUP_H")).toBe("Group H");
-    expect(normalizeFootballDataGroup(null)).toBe("Competition");
+    expect(normalizeFootballDataStage("GROUP_STAGE")).toBe("小组赛");
+    expect(normalizeFootballDataStage("SEMI_FINALS")).toBe("淘汰赛");
+    expect(normalizeFootballDataGroup("GROUP_H")).toBe("H组");
+    expect(normalizeFootballDataGroup(null)).toBe("赛事");
   });
 });

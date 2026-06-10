@@ -7,21 +7,28 @@ describe("world cup mock data", () => {
     expect(teams).toHaveLength(32);
     expect(groups).toHaveLength(8);
     expect(groups.map((group) => group.name)).toEqual([
-      "Group A",
-      "Group B",
-      "Group C",
-      "Group D",
-      "Group E",
-      "Group F",
-      "Group G",
-      "Group H",
+      "A组",
+      "B组",
+      "C组",
+      "D组",
+      "E组",
+      "F组",
+      "G组",
+      "H组",
     ]);
     expect(groups.every((group) => group.table.length === 4)).toBe(true);
   });
 
+  it("localizes coach and squad names for team details", () => {
+    const canada = teams.find((team) => team.name === "Canada");
+
+    expect(canada?.coach).toBe("杰西·马什");
+    expect(canada?.squad).toEqual(["阿方索·戴维斯", "乔纳森·戴维", "塔琼·布坎南", "斯蒂芬·欧斯塔基奥"]);
+  });
+
   it("splits matches into group and knockout stages", () => {
-    expect(matches.some((match) => match.stage === "Group Stage")).toBe(true);
-    expect(matches.some((match) => match.stage === "Knockout Stage")).toBe(true);
+    expect(matches.some((match) => match.stage === "小组赛")).toBe(true);
+    expect(matches.some((match) => match.stage === "淘汰赛")).toBe(true);
   });
 
   it("includes historic champions in chronological order", () => {

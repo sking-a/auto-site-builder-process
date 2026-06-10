@@ -1,4 +1,6 @@
 import { getTeamVisual, type Group, type Match } from "../data/worldCup";
+import { localizeGroupName, localizeRound, localizeStatus, localizeTeamName } from "../i18n/zh";
+import { formatChinaDateTimeParts } from "../utils/chinaTime";
 
 export type ApiStatus = "idle" | "loading" | "live" | "fallback" | "error";
 
@@ -59,22 +61,20 @@ const apiBaseUrl = "/api/football-data";
 const worldCupSeason = import.meta.env.VITE_WORLD_CUP_SEASON || "2026";
 
 export function normalizeFootballDataStage(stage?: string | null): Match["stage"] {
-  return stage === "GROUP_STAGE" ? "Group Stage" : "Knockout Stage";
+  return stage === "GROUP_STAGE" ? "小组赛" : "淘汰赛";
 }
 
 export function normalizeFootballDataGroup(group?: string | null): string {
-  if (!group) return "Competition";
-  const match = group.match(/^GROUP_([A-Z])$/);
-  return match ? `Group ${match[1]}` : toTitleCase(group);
+  return localizeGroupName(group);
 }
 
 export function formatFootballDataRound(match: Pick<FootballDataMatch, "stage" | "group" | "matchday">): string {
   if (match.stage === "GROUP_STAGE") {
     const group = normalizeFootballDataGroup(match.group);
-    return match.matchday ? `${group} · Matchday ${match.matchday}` : group;
+    return match.matchday ? `${group} · 第${match.matchday}轮` : group;
   }
 
-  return toTitleCase(match.stage || "Knockout Stage");
+  return localizeRound(match.stage || "淘汰赛");
 }
 
 export function mapFootballDataMatches(apiMatches: FootballDataMatch[]): Match[] {
@@ -82,6 +82,7 @@ export function mapFootballDataMatches(apiMatches: FootballDataMatch[]): Match[]
     const home = mapApiTeam(match.homeTeam, "Home");
     const away = mapApiTeam(match.awayTeam, "Away");
     const date = match.utcDate ? new Date(match.utcDate) : null;
+    const chinaDateTime = date ? formatChinaDateTimeParts(date) : null;
     const homeScore = match.score?.fullTime?.home;
     const awayScore = match.score?.fullTime?.away;
     const hasScore = typeof homeScore === "number" && typeof awayScore === "number";
@@ -90,8 +91,8 @@ export function mapFootballDataMatches(apiMatches: FootballDataMatch[]): Match[]
       id: `api-${match.id}`,
       stage: normalizeFootballDataStage(match.stage),
       round: formatFootballDataRound(match),
-      date: date ? date.toISOString().slice(0, 10) : "TBD",
-      time: date ? date.toISOString().slice(11, 16) : "TBD",
+      date: chinaDateTime ? chinaDateTime.date : "TBD",
+      time: chinaDateTime ? chinaDateTime.time : "TBD",
       venue: statusLabel(match.status),
       home,
       away,
@@ -170,21 +171,12 @@ async function fetchJson<T>(url: string, fetcher: typeof fetch): Promise<T> {
 function mapApiTeam(team: FootballDataTeam | undefined, fallbackName: string) {
   const name = team?.name || team?.shortName || fallbackName;
   return {
-    name,
+    name: localizeTeamName(name),
     flag: "",
     ...getTeamVisual(name, team?.tla || undefined),
   };
 }
 
 function statusLabel(status?: string) {
-  return status ? toTitleCase(status) : "Scheduled";
-}
-
-function toTitleCase(value: string) {
-  return value
-    .toLowerCase()
-    .split("_")
-    .filter(Boolean)
-    .map((part) => part[0].toUpperCase() + part.slice(1))
-    .join(" ");
+  return status ? localizeStatus(status) : "已安排";
 }

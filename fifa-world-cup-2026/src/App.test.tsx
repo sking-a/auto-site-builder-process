@@ -4,23 +4,26 @@ import { describe, expect, it } from "vitest";
 import App from "./App";
 
 describe("App", () => {
-  it("renders the required World Cup sections", () => {
+  it("renders the required Chinese World Cup sections", () => {
     render(<App />);
 
-    expect(screen.getByRole("heading", { name: /2026 FIFA World Cup/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Match Schedule/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Group Standings/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Teams/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Past Champions/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /2026 FIFA 世界杯/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /赛程/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /积分榜/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /参赛球队/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /历届冠军/i })).toBeInTheDocument();
+    expect(screen.queryByText(/football-data\.org/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/实时 API 数据/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/模拟数据回退/i)).not.toBeInTheDocument();
   });
 
-  it("opens a team detail panel from a team card", async () => {
+  it("opens a localized team detail panel from a team card", async () => {
     render(<App />);
 
-    fireEvent.click(screen.getByRole("button", { name: /view Brazil squad/i }));
+    fireEvent.click(screen.getByRole("button", { name: /查看巴西阵容/i }));
 
-    expect(screen.getByText(/Head Coach:/i)).toBeInTheDocument();
-    expect(screen.getByText(/Dorival Junior/i)).toBeInTheDocument();
-    expect(screen.getByText(/Vinicius Junior/i)).toBeInTheDocument();
+    expect(screen.getByText(/主教练：/i)).toBeInTheDocument();
+    expect(screen.getByText(/多里瓦尔·儒尼奥尔/i)).toBeInTheDocument();
+    expect(screen.getByText(/维尼修斯·儒尼奥尔/i)).toBeInTheDocument();
   });
 });

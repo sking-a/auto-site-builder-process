@@ -1,16 +1,16 @@
 import { CalendarDays, ChevronRight, Clock3, Menu, Shield, Trophy, Users, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { champions, groups as mockGroups, matches as mockMatches, teams, type Group, type Match, type Team } from "./data/worldCup";
+import { localizeGroupName, localizeTeamName } from "./i18n/zh";
 import { fetchLiveWorldCupData, type ApiStatus } from "./services/footballData";
-import { getDaysUntilOpening } from "./utils/countdown";
+import { formatChinaDateTime, getDaysUntilOpeningChina, openingDateChina } from "./utils/chinaTime";
 
-const openingDate = new Date("2026-06-11T20:00:00-05:00");
 const navItems = [
-  ["Home", "home"],
-  ["Schedule", "schedule"],
-  ["Standings", "standings"],
-  ["Teams", "teams"],
-  ["Champions", "champions"],
+  ["首页", "home"],
+  ["赛程", "schedule"],
+  ["积分榜", "standings"],
+  ["球队", "teams"],
+  ["历届冠军", "champions"],
 ] as const;
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
   const [fetchedAt, setFetchedAt] = useState<string | null>(null);
   const [liveMatches, setLiveMatches] = useState<Match[]>(mockMatches);
   const [liveGroups, setLiveGroups] = useState<Group[]>(mockGroups);
-  const daysLeft = getDaysUntilOpening(new Date(), openingDate);
+  const daysLeft = getDaysUntilOpeningChina(new Date(), openingDateChina);
 
   useEffect(() => {
     let active = true;
@@ -49,13 +49,13 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cupGreen text-white">
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-cupGreen/92 backdrop-blur">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-cupGold/25 bg-cupInk/95 text-white shadow-lg shadow-cupInk/25 backdrop-blur supports-[backdrop-filter]:bg-cupInk/90">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-          <a href="#home" className="flex items-center gap-3 font-display text-lg font-black tracking-normal">
+          <a href="#home" className="flex items-center gap-3 font-display text-lg font-black tracking-normal text-white">
             <span className="grid h-10 w-10 place-items-center rounded-full border border-cupGold bg-cupGold text-cupInk">
               <Trophy size={20} />
             </span>
-            2026 World Cup
+            2026 世界杯
           </a>
           <div className="hidden items-center gap-7 md:flex">
             {navItems.map(([label, href]) => (
@@ -67,7 +67,7 @@ function App() {
           <button
             type="button"
             className="grid h-10 w-10 place-items-center rounded border border-white/20 md:hidden"
-            aria-label="Toggle navigation"
+            aria-label="打开导航"
             onClick={() => setMenuOpen((value) => !value)}
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -118,34 +118,33 @@ function Hero({
       <div className="relative mx-auto flex min-h-[78vh] max-w-7xl flex-col justify-center px-5 py-20">
         <div className="max-w-3xl">
           <h1 className="font-display text-5xl font-black leading-[1.02] tracking-normal text-white sm:text-6xl lg:text-7xl">
-            2026 FIFA World Cup
+            2026 FIFA 世界杯
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-white/82">
-            Explore a clean mock portal for fixtures, scores, group standings, squads, coaches, and the champions who
-            shaped football history.
+            实时查看 2026 世界杯赛程、比分、积分榜、参赛球队、阵容主帅和历届冠军，一站式掌握赛事动态。
           </p>
         </div>
         <div className="mt-10 grid max-w-3xl gap-4 sm:grid-cols-[1fr_1.3fr]">
           <div className="rounded-lg border border-cupGold/55 bg-cupInk/70 p-6 shadow-gold backdrop-blur">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-cupGold">Opening countdown</p>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-cupGold">开幕倒计时</p>
             <div className="mt-3 flex items-end gap-3">
               <span className="text-6xl font-black text-cupGold">{daysLeft}</span>
-              <span className="pb-2 text-xl font-bold">days</span>
+              <span className="pb-2 text-xl font-bold">天</span>
             </div>
-            <p className="mt-3 text-sm text-white/70">Opening match: June 11, 2026</p>
+            <p className="mt-3 text-sm text-white/70">开幕战：2026年6月12日 09:00 中国时间</p>
           </div>
           <div className="rounded-lg border border-white/15 bg-white/10 p-6 backdrop-blur">
             <div className="flex items-center gap-3 text-cupGold">
               <CalendarDays size={22} />
-              <span className="text-sm font-bold uppercase tracking-[0.16em]">football-data.org feed</span>
+              <span className="text-sm font-bold uppercase tracking-[0.16em]">赛事更新</span>
             </div>
             <p className="mt-4 text-2xl font-black">{statusMessage(apiStatus)}</p>
             <p className="mt-3 text-sm leading-6 text-white/68">
               {fetchedAt
-                ? `Updated ${new Date(fetchedAt).toLocaleString()}`
+                ? `更新时间：${formatChinaDateTime(new Date(fetchedAt))}`
                 : apiError
-                  ? "Showing built-in mock data until the live feed responds."
-                  : "Fetching World Cup matches and standings through the local token proxy."}
+                  ? "赛事信息暂不可用，当前展示备用赛程。"
+                  : "正在更新世界杯赛程和积分榜。"}
             </p>
           </div>
         </div>
@@ -165,14 +164,14 @@ function ScheduleSection({
 }) {
   const stagedMatches = useMemo(
     () => ({
-      "Group Stage": matches.filter((match) => match.stage === "Group Stage"),
-      "Knockout Stage": matches.filter((match) => match.stage === "Knockout Stage"),
+      "小组赛": matches.filter((match) => match.stage === "小组赛"),
+      "淘汰赛": matches.filter((match) => match.stage === "淘汰赛"),
     }),
     [matches],
   );
 
   return (
-    <Section id="schedule" title="Match Schedule" icon={<Clock3 size={22} />}>
+    <Section id="schedule" title="赛程" icon={<Clock3 size={22} />}>
       <DataStatus status={apiStatus} fetchedAt={fetchedAt} className="mb-5" />
       <div className="grid gap-7 lg:grid-cols-2">
         {Object.entries(stagedMatches).map(([stage, stageMatches]) => (
@@ -187,7 +186,7 @@ function ScheduleSection({
                   <div className="flex flex-wrap items-center justify-between gap-3 text-sm font-bold text-cupGreen/70">
                     <span>{match.round}</span>
                     <span>
-                      {match.date} · {match.time}
+                      {match.date} · {match.time} 中国时间
                     </span>
                   </div>
                   <div className="mt-4 grid grid-cols-[1fr_auto_1fr] items-center gap-3">
@@ -220,7 +219,7 @@ function FlagBadge({
     <span
       className={`${sizeClass} inline-grid shrink-0 place-items-center overflow-hidden rounded border border-cupInk/20 font-black text-white shadow-sm [text-shadow:0_1px_2px_rgba(0,0,0,.55)]`}
       style={{ background: team.flagStyle }}
-      aria-label={`${team.name ?? team.flagCode} flag`}
+      aria-label={`${team.name ? localizeTeamName(team.name) : team.flagCode}旗帜`}
       role="img"
     >
       {team.flagCode}
@@ -238,7 +237,7 @@ function TeamLine({
   return (
     <div className={`flex items-center gap-2 ${align === "right" ? "justify-end text-right" : ""}`}>
       {align === "left" ? <FlagBadge team={team} /> : null}
-      <span className="font-black">{team.name}</span>
+      <span className="font-black">{localizeTeamName(team.name)}</span>
       {align === "right" ? <FlagBadge team={team} /> : null}
     </div>
   );
@@ -246,22 +245,22 @@ function TeamLine({
 
 function StandingsSection({ groups, apiStatus }: { groups: Group[]; apiStatus: ApiStatus }) {
   return (
-    <Section id="standings" title="Group Standings" icon={<Shield size={22} />}>
+    <Section id="standings" title="积分榜" icon={<Shield size={22} />}>
       <DataStatus status={apiStatus} className="mb-5" />
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {groups.map((group, groupIndex) => (
           <div key={`${group.name}-${groupIndex}`} className="overflow-hidden rounded-lg border border-white/12 bg-white text-cupInk shadow-xl">
-            <h3 className="bg-cupInk px-4 py-3 text-lg font-black text-cupGold">{group.name}</h3>
+            <h3 className="bg-cupInk px-4 py-3 text-lg font-black text-cupGold">{localizeGroupName(group.name)}</h3>
             <table className="w-full text-sm">
               <thead className="bg-cupGreen/8 text-left text-xs uppercase text-cupGreen/62">
                 <tr>
-                  <th className="px-4 py-3">Team</th>
-                  <th>W</th>
-                  <th>D</th>
-                  <th>L</th>
-                  <th>GF</th>
-                  <th>GA</th>
-                  <th>Pts</th>
+                  <th className="px-4 py-3">球队</th>
+                  <th>胜</th>
+                  <th>平</th>
+                  <th>负</th>
+                  <th>进</th>
+                  <th>失</th>
+                  <th>分</th>
                 </tr>
               </thead>
               <tbody>
@@ -270,7 +269,7 @@ function StandingsSection({ groups, apiStatus }: { groups: Group[]; apiStatus: A
                     <td className="px-4 py-3 font-bold">
                       <span className="flex items-center gap-2">
                         <FlagBadge team={row.team} size="sm" />
-                        {row.team.name}
+                        {localizeTeamName(row.team.name)}
                       </span>
                     </td>
                     <td>{row.wins}</td>
@@ -292,14 +291,14 @@ function StandingsSection({ groups, apiStatus }: { groups: Group[]; apiStatus: A
 
 function TeamsSection({ selectedTeam, onSelectTeam }: { selectedTeam: Team; onSelectTeam: (team: Team) => void }) {
   return (
-    <Section id="teams" title="Teams" icon={<Users size={22} />}>
+    <Section id="teams" title="参赛球队" icon={<Users size={22} />}>
       <div className="grid gap-7 lg:grid-cols-[1.4fr_0.8fr]">
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {teams.map((team) => (
             <button
               key={team.id}
               type="button"
-              aria-label={`View ${team.name} squad`}
+              aria-label={`查看${localizeTeamName(team.name)}阵容`}
               onClick={() => onSelectTeam(team)}
               className={`rounded-lg border p-5 text-left transition hover:-translate-y-1 hover:shadow-gold ${
                 selectedTeam.id === team.id
@@ -308,19 +307,19 @@ function TeamsSection({ selectedTeam, onSelectTeam }: { selectedTeam: Team; onSe
               }`}
             >
               <FlagBadge team={team} size="lg" />
-              <h3 className="mt-4 text-lg font-black">{team.name}</h3>
+              <h3 className="mt-4 text-lg font-black">{localizeTeamName(team.name)}</h3>
               <p className="text-sm font-bold opacity-70">{team.group}</p>
             </button>
           ))}
         </div>
         <aside className="sticky top-24 self-start rounded-lg border border-cupGold/45 bg-cupInk p-6 shadow-gold">
           <FlagBadge team={selectedTeam} size="lg" />
-          <h3 className="mt-4 text-3xl font-black">{selectedTeam.name}</h3>
+          <h3 className="mt-4 text-3xl font-black">{localizeTeamName(selectedTeam.name)}</h3>
           <p className="mt-2 text-cupGold">
-            <span className="font-black">Head Coach:</span> {selectedTeam.coach}
+            <span className="font-black">主教练：</span> {selectedTeam.coach}
           </p>
           <div className="mt-6">
-            <h4 className="text-sm font-black uppercase tracking-[0.16em] text-white/60">Squad highlights</h4>
+            <h4 className="text-sm font-black uppercase tracking-[0.16em] text-white/60">阵容亮点</h4>
             <ul className="mt-3 space-y-3">
               {selectedTeam.squad.map((player) => (
                 <li key={player} className="flex items-center gap-3 rounded bg-white/8 px-3 py-2">
@@ -338,7 +337,7 @@ function TeamsSection({ selectedTeam, onSelectTeam }: { selectedTeam: Team; onSe
 
 function ChampionsSection() {
   return (
-    <Section id="champions" title="Past Champions" icon={<Trophy size={22} />}>
+    <Section id="champions" title="历届冠军" icon={<Trophy size={22} />}>
       <div className="relative mx-auto max-w-4xl">
         <div className="absolute left-5 top-0 hidden h-full w-px bg-cupGold/50 sm:block" />
         <div className="space-y-5">
@@ -357,7 +356,7 @@ function ChampionsSection() {
                     </span>
                   </h3>
                 </div>
-                <p className="rounded bg-cupGreen px-4 py-2 text-sm font-black text-cupGold">Runner-up: {champion.runnerUp}</p>
+                <p className="rounded bg-cupGreen px-4 py-2 text-sm font-black text-cupGold">亚军：{champion.runnerUp}</p>
               </div>
             </article>
           ))}
@@ -380,17 +379,17 @@ function DataStatus({
     <div className={`flex flex-wrap items-center gap-3 text-sm ${className}`}>
       <span className="rounded bg-cupGold px-3 py-2 font-black text-cupInk">{statusMessage(status)}</span>
       <span className="text-white/70">
-        {status === "live" && fetchedAt ? `Updated ${new Date(fetchedAt).toLocaleString()}` : "Season: 2026"}
+        {status === "live" && fetchedAt ? `更新时间：${formatChinaDateTime(new Date(fetchedAt))}` : "赛季：2026"}
       </span>
     </div>
   );
 }
 
 function statusMessage(status: ApiStatus) {
-  if (status === "loading") return "Loading live data";
-  if (status === "live") return "Live API data";
-  if (status === "error") return "API error";
-  return "Mock fallback data";
+  if (status === "loading") return "正在更新";
+  if (status === "live") return "已更新";
+  if (status === "error") return "暂不可用";
+  return "备用赛程";
 }
 
 function Section({

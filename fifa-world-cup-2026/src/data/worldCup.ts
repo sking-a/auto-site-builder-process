@@ -1,3 +1,5 @@
+import { localizeGroupName, localizePersonName, localizeRound, localizeTeamName, localizeVenue } from "../i18n/zh";
+
 export type Team = {
   id: string;
   name: string;
@@ -11,7 +13,7 @@ export type Team = {
 
 export type Match = {
   id: string;
-  stage: "Group Stage" | "Knockout Stage";
+  stage: "小组赛" | "淘汰赛";
   round: string;
   date: string;
   time: string;
@@ -46,7 +48,7 @@ export type Champion = {
   runnerUp: string;
 };
 
-const groupNames = ["Group A", "Group B", "Group C", "Group D", "Group E", "Group F", "Group G", "Group H"];
+const groupNames = ["A组", "B组", "C组", "D组", "E组", "F组", "G组", "H组"];
 
 export const flagMeta: Record<string, { code: string; style: string }> = {
   Brazil: { code: "BR", style: "linear-gradient(135deg,#229e45 0 32%,#f7d117 32% 68%,#2b4db8 68% 100%)" },
@@ -136,8 +138,8 @@ export const teams: Team[] = teamSeeds.map(([name, flag, coach, squad], index) =
   name,
   flag,
   ...getTeamVisual(name),
-  coach,
-  squad: [...squad],
+  coach: localizePersonName(coach),
+  squad: squad.map((player) => localizePersonName(player)),
   group: groupNames[Math.floor(index / 4)],
 }));
 
@@ -148,23 +150,23 @@ const teamByName = (name: string) => {
 };
 
 export const matches: Match[] = [
-  ["m1", "Group Stage", "Matchday 1", "2026-06-11", "20:00", "Mexico City", "Mexico", "Canada", "1-1"],
-  ["m2", "Group Stage", "Matchday 1", "2026-06-12", "18:00", "Los Angeles", "Brazil", "Morocco", "2-0"],
-  ["m3", "Group Stage", "Matchday 1", "2026-06-13", "21:00", "New York/New Jersey", "Argentina", "United States", "2-2"],
-  ["m4", "Group Stage", "Matchday 2", "2026-06-18", "19:00", "Toronto", "France", "Mexico", "3-1"],
-  ["m5", "Group Stage", "Matchday 2", "2026-06-19", "17:00", "Dallas", "Spain", "Croatia", "0-0"],
-  ["m6", "Group Stage", "Matchday 3", "2026-06-24", "20:00", "Atlanta", "England", "Netherlands", "1-0"],
-  ["m7", "Knockout Stage", "Round of 16", "2026-07-04", "18:00", "Philadelphia", "Brazil", "United States", "TBD"],
-  ["m8", "Knockout Stage", "Quarterfinal", "2026-07-10", "20:00", "Kansas City", "France", "Spain", "TBD"],
-  ["m9", "Knockout Stage", "Semifinal", "2026-07-14", "21:00", "Dallas", "Argentina", "Germany", "TBD"],
-  ["m10", "Knockout Stage", "Final", "2026-07-19", "19:00", "New York/New Jersey", "Brazil", "France", "TBD"],
+  ["m1", "小组赛", "Matchday 1", "2026-06-12", "09:00", "Mexico City", "Mexico", "Canada", "1-1"],
+  ["m2", "小组赛", "Matchday 1", "2026-06-13", "09:00", "Los Angeles", "Brazil", "Morocco", "2-0"],
+  ["m3", "小组赛", "Matchday 1", "2026-06-14", "09:00", "New York/New Jersey", "Argentina", "United States", "2-2"],
+  ["m4", "小组赛", "Matchday 2", "2026-06-19", "07:00", "Toronto", "France", "Mexico", "3-1"],
+  ["m5", "小组赛", "Matchday 2", "2026-06-20", "06:00", "Dallas", "Spain", "Croatia", "0-0"],
+  ["m6", "小组赛", "Matchday 3", "2026-06-25", "08:00", "Atlanta", "England", "Netherlands", "1-0"],
+  ["m7", "淘汰赛", "Round of 16", "2026-07-05", "06:00", "Philadelphia", "Brazil", "United States", "TBD"],
+  ["m8", "淘汰赛", "Quarterfinal", "2026-07-11", "09:00", "Kansas City", "France", "Spain", "TBD"],
+  ["m9", "淘汰赛", "Semifinal", "2026-07-15", "10:00", "Dallas", "Argentina", "Germany", "TBD"],
+  ["m10", "淘汰赛", "Final", "2026-07-20", "07:00", "New York/New Jersey", "Brazil", "France", "TBD"],
 ].map(([id, stage, round, date, time, venue, home, away, score]) => ({
   id,
   stage: stage as Match["stage"],
-  round,
+  round: localizeRound(round),
   date,
   time,
-  venue,
+  venue: localizeVenue(venue),
   home: teamByName(home),
   away: teamByName(away),
   score,
@@ -199,10 +201,10 @@ export const champions: Champion[] = [
   ["2022", "Qatar", "Argentina", "France"],
 ].map(([year, host, winner, runnerUp]) => ({
   year: Number(year),
-  host,
-  winner,
+  host: localizeTeamName(host),
+  winner: localizeTeamName(winner),
   flag: "",
   flagCode: flagMeta[winner]?.code ?? winner.slice(0, 2).toUpperCase(),
   flagStyle: flagMeta[winner]?.style ?? "linear-gradient(135deg,#fff,#ffd700)",
-  runnerUp,
+  runnerUp: localizeTeamName(runnerUp),
 }));
