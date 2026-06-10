@@ -63,6 +63,26 @@ test("source files that render public pages do not contain Chinese characters", 
   }
 });
 
+test("header uses a designed SVG logo instead of the FL placeholder", () => {
+  const header = readFileSync(join(root, "src", "components", "SiteHeader.tsx"), "utf8");
+  const logo = readFileSync(join(root, "src", "components", "BrandLogo.tsx"), "utf8");
+
+  assert.equal(header.includes("BrandLogo"), true);
+  assert.equal(header.includes(">FL<"), false);
+  assert.equal(logo.includes("<svg"), true);
+  assert.equal(logo.includes("Football Live Guide logo"), true);
+});
+
+test("homepage uses a designed hero visual instead of a placeholder image", () => {
+  const home = readFileSync(join(root, "src", "app", "page.tsx"), "utf8");
+  const heroVisual = readFileSync(join(root, "src", "components", "HeroVisual.tsx"), "utf8");
+
+  assert.equal(home.includes("HeroVisual"), true);
+  assert.equal(home.includes("stadium-guide.webp"), false);
+  assert.equal(heroVisual.includes("Match signal"), true);
+  assert.equal(heroVisual.includes("Official channels verified"), true);
+});
+
 test("seo helpers expose Article, FAQPage, HowTo, breadcrumb, and website schemas", () => {
   assert.equal(existsSync(seoPath), true);
   const seoSource = readFileSync(seoPath, "utf8");

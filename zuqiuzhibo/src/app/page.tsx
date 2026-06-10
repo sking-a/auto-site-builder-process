@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { BlogRail, ComplianceNotice, ProviderGrid, ScheduleBand } from "@/components/PageSections";
+import { HeroVisual } from "@/components/HeroVisual";
 import { JsonLd } from "@/components/JsonLd";
 import { getBlogPosts, getSite } from "@/lib/site";
 import { websiteSchema } from "@/lib/seo";
@@ -32,23 +32,7 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="rounded-[2rem] border border-lime/20 bg-white/[0.05] p-4 shadow-glow">
-            <Image
-              src="/stadium-guide.webp"
-              alt="Abstract night football stadium with pitch lines for the Football Live Guide official channel site"
-              width="900"
-              height="620"
-              className="aspect-[1.45] w-full rounded-[1.5rem] object-cover"
-              loading="eager"
-            />
-            <div className="grid gap-3 pt-4 sm:grid-cols-3">
-              {["Today Schedule", "Official Channels", "Mobile Friendly"].map((label) => (
-                <div key={label} className="rounded-2xl border border-white/10 bg-pitch/70 p-4 text-sm font-bold text-lime">
-                  {label}
-                </div>
-              ))}
-            </div>
-          </div>
+          <HeroVisual />
         </div>
       </section>
       <ComplianceNotice text={site.primaryComplianceNote} />
