@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { champions, groups as mockGroups, matches as mockMatches, teams, type Group, type Match, type Team } from "./data/worldCup";
 import { localizeGroupName, localizeTeamName } from "./i18n/zh";
 import { fetchLiveWorldCupData, type ApiStatus } from "./services/footballData";
-import { formatChinaDateTime, getDaysUntilOpeningChina, openingDateChina } from "./utils/chinaTime";
+import { formatChinaDateTime, getOpeningCountdownChina, openingDateChina, type OpeningCountdown } from "./utils/chinaTime";
 
 const navItems = [
   ["首页", "home"],
@@ -21,7 +21,13 @@ function App() {
   const [fetchedAt, setFetchedAt] = useState<string | null>(null);
   const [liveMatches, setLiveMatches] = useState<Match[]>(mockMatches);
   const [liveGroups, setLiveGroups] = useState<Group[]>(mockGroups);
-  const daysLeft = getDaysUntilOpeningChina(new Date(), openingDateChina);
+  const [now, setNow] = useState(() => new Date());
+  const openingCountdown = getOpeningCountdownChina(now, openingDateChina);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(new Date()), 30 * 1000);
+    return () => window.clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -90,7 +96,7 @@ function App() {
       </header>
 
       <main>
-        <Hero daysLeft={daysLeft} apiStatus={apiStatus} fetchedAt={fetchedAt} apiError={apiError} />
+        <Hero openingCountdown={openingCountdown} apiStatus={apiStatus} fetchedAt={fetchedAt} apiError={apiError} />
         <ScheduleSection matches={liveMatches} apiStatus={apiStatus} fetchedAt={fetchedAt} />
         <StandingsSection groups={liveGroups} apiStatus={apiStatus} />
         <TeamsSection selectedTeam={selectedTeam} onSelectTeam={setSelectedTeam} />
@@ -101,12 +107,12 @@ function App() {
 }
 
 function Hero({
-  daysLeft,
+  openingCountdown,
   apiStatus,
   fetchedAt,
   apiError,
 }: {
-  daysLeft: number;
+  openingCountdown: OpeningCountdown;
   apiStatus: ApiStatus;
   fetchedAt: string | null;
   apiError: string | null;
@@ -127,11 +133,10 @@ function Hero({
         <div className="mt-10 grid max-w-3xl gap-4 sm:grid-cols-[1fr_1.3fr]">
           <div className="rounded-lg border border-cupGold/55 bg-cupInk/70 p-6 shadow-gold backdrop-blur">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-cupGold">开幕倒计时</p>
-            <div className="mt-3 flex items-end gap-3">
-              <span className="text-6xl font-black text-cupGold">{daysLeft}</span>
-              <span className="pb-2 text-xl font-bold">天</span>
+            <div className="mt-3 flex flex-wrap items-end gap-x-3 gap-y-1">
+              <CountdownValue countdown={openingCountdown} />
             </div>
-            <p className="mt-3 text-sm text-white/70">开幕战：2026年6月12日 09:00 中国时间</p>
+            <p className="mt-3 text-sm text-white/70">开幕战：2026年6月12日 09:00</p>
           </div>
           <div className="rounded-lg border border-white/15 bg-white/10 p-6 backdrop-blur">
             <div className="flex items-center gap-3 text-cupGold">
@@ -150,6 +155,30 @@ function Hero({
         </div>
       </div>
     </section>
+  );
+}
+
+function CountdownValue({ countdown }: { countdown: OpeningCountdown }) {
+  if (countdown.variant === "opened") {
+    return <span className="text-4xl font-black text-cupGold">已开幕</span>;
+  }
+
+  if (countdown.variant === "time") {
+    return (
+      <>
+        <span className="text-5xl font-black text-cupGold">{countdown.hours}</span>
+        <span className="pb-2 text-lg font-bold">小时</span>
+        <span className="text-5xl font-black text-cupGold">{String(countdown.minutes).padStart(2, "0")}</span>
+        <span className="pb-2 text-lg font-bold">分钟</span>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <span className="text-6xl font-black text-cupGold">{countdown.days}</span>
+      <span className="pb-2 text-xl font-bold">天</span>
+    </>
   );
 }
 
@@ -186,7 +215,7 @@ function ScheduleSection({
                   <div className="flex flex-wrap items-center justify-between gap-3 text-sm font-bold text-cupGreen/70">
                     <span>{match.round}</span>
                     <span>
-                      {match.date} · {match.time} 中国时间
+                      {match.date} · {match.time}
                     </span>
                   </div>
                   <div className="mt-4 grid grid-cols-[1fr_auto_1fr] items-center gap-3">
